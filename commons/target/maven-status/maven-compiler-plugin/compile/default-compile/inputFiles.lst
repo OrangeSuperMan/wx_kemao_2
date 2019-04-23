@@ -1,0 +1,15 @@
+D:\java\weixin_project\wx_kemao_2\commons\src\main\java\edu\gdkm\weixin\domain\ResponseError.java
+D:\java\weixin_project\wx_kemao_2\commons\src\main\java\edu\gdkm\weixin\json\JsonRedisSerializer.java
+D:\java\weixin_project\wx_kemao_2\commons\src\main\java\edu\gdkm\weixin\domain\text\TextInMessage.java
+D:\java\weixin_project\wx_kemao_2\commons\src\main\java\edu\gdkm\weixin\service\impl\AccessTokenManagerSample.java
+D:\java\weixin_project\wx_kemao_2\commons\src\main\java\edu\gdkm\weixin\repository\UserRepository.java
+D:\java\weixin_project\wx_kemao_2\commons\src\main\java\edu\gdkm\weixin\domain\ResponseMessage.java
+D:\java\weixin_project\wx_kemao_2\commons\src\main\java\edu\gdkm\weixin\processors\EventMessageProcessor.java
+D:\java\weixin_project\wx_kemao_2\commons\src\main\java\edu\gdkm\weixin\domain\InMessage.java
+D:\java\weixin_project\wx_kemao_2\commons\src\main\java\edu\gdkm\weixin\domain\User.java
+D:\java\weixin_project\wx_kemao_2\commons\src\main\java\edu\gdkm\weixin\domain\image\ImageInMessage.java
+D:\java\weixin_project\wx_kemao_2\commons\src\main\java\edu\gdkm\weixin\domain\ResponseToken.java
+D:\java\weixin_project\wx_kemao_2\commons\src\main\java\edu\gdkm\weixin\service\AccessTokenManager.java
+D:\java\weixin_project\wx_kemao_2\commons\src\main\java\edu\gdkm\weixin\domain\event\EventInMessage.java
+D:\java\weixin_project\wx_kemao_2\commons\src\main\java\edu\gdkm\weixin\CommonsConfig.java
+D:\java\weixin_project\wx_kemao_2\commons\src\main\java\edu\gdkm\weixin\service\WeiXinProxy.java

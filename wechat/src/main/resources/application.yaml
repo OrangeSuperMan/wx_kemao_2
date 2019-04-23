@@ -1,0 +1,17 @@
+spring:
+   datasource:
+      url: jdbc:mysql://localhost:3306/kemao_2?useSSL=false&serverTimezone=CST&allowPublicKeyRetrieval=true
+      username: kemao_2
+      password: 1234
+      driver-class-name: com.mysql.cj.jdbc.Driver
+   redis:
+      host: 39.108.75.233
+      port: 6379
+      #数据库只能是是0~15，因为目前使用的是默认设置，最多设置16个数据库
+      database: 15
+   
+#指定服务器在运行的时候，Tomcat使用的端口
+#Spring Boot自带了一个阉割版Tomcat,默认不支持jsp,只是支持Servlet
+server:
+   port: 8889
+
