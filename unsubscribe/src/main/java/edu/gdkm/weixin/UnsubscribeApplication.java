@@ -22,14 +22,13 @@ import org.springframework.data.redis.listener.ChannelTopic;
 import org.springframework.data.redis.listener.RedisMessageListenerContainer;
 import org.springframework.data.redis.listener.Topic;
 import org.springframework.data.redis.listener.adapter.MessageListenerAdapter;
-
 import edu.gdkm.weixin.domain.InMessage;
 import edu.gdkm.weixin.domain.event.EventInMessage;
 import edu.gdkm.weixin.processors.EventMessageProcessor;
 
 @SpringBootApplication
 @ComponentScan("edu.gdkm")
-public class SubscribeApplication implements //
+public class UnsubscribeApplication implements //
 //		 命令行运行器，表示此程序是一个命令行程序，需要重新run方法来实现程序的初始化。
 //		 使用一个线程等待程序的停止通知。
 		CommandLineRunner, //
@@ -39,7 +38,7 @@ public class SubscribeApplication implements //
 		ApplicationContextAware, //
 		CommonsConfig {
 
-	private static final Logger LOG = LoggerFactory.getLogger(SubscribeApplication.class);
+	private static final Logger LOG = LoggerFactory.getLogger(UnsubscribeApplication.class);
 
 	private ApplicationContext ctx;
 
@@ -98,6 +97,6 @@ public class SubscribeApplication implements //
 	}
 
 	public static void main(String[] args) throws InterruptedException {
-		SpringApplication.run(SubscribeApplication.class, args);
+		SpringApplication.run(UnsubscribeApplication.class, args);
 	}
 }

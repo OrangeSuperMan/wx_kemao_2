@@ -6,11 +6,11 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-@XmlRootElement(name="xml")   //文件格式为xml
-@XmlAccessorType(XmlAccessType.FIELD)  //从字段获取配置信息
+@XmlRootElement(name="xml")   //   文件格式为xml
+@XmlAccessorType(XmlAccessType.FIELD)  //   从字段获取配置信息
 public abstract class InMessage implements Serializable{
 	private static final long serialVersionUID = 1L;
-//使用JAXB方式转换
+//	使用JAXB方式转换
     @XmlElement(name="ToUserName")   
 	private String toUserName;
     

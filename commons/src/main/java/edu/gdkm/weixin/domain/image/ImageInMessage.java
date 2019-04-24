@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import edu.gdkm.weixin.domain.InMessage;
-@XmlRootElement(name="xml")   //文件格式为xml
+@XmlRootElement(name="xml")   //   文件格式为xml
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ImageInMessage extends InMessage {
 

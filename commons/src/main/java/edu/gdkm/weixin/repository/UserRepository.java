@@ -14,7 +14,7 @@ import edu.gdkm.weixin.domain.User;
 //   <User, String> 前者表示管理哪个类的数据（对应哪个表），后者表示主键的数据类型
 public interface UserRepository extends JpaRepository<User, String> {
 
-//	 会自动根据方法生成SQL语句
+//	 会自动根据方法生成sql语句
 //	 select * from wx_user where open_id = ?
 	User findByOpenId(String openId);
 }

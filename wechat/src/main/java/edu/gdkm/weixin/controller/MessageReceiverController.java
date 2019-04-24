@@ -19,7 +19,7 @@ import edu.gdkm.weixin.service.MessageConvertHelper;
 @RestController
 @RequestMapping("/kemao_2/message/receiver")
 public class MessageReceiverController {
-	// 日志记录器
+//	 日志记录器
 	private static final Logger LOG = LoggerFactory.getLogger(MessageReceiverController.class);
 	@Autowired
 	private RedisTemplate<String, ? extends InMessage> inMessageTemplate;
@@ -36,31 +36,31 @@ public class MessageReceiverController {
 	public String onMessage(@RequestBody String xml) throws IOException {
 		LOG.trace("收到的消息原文：\n{}\n--------------", xml);
 
-		// 转换消息
-		// 转换消息1.获取消息的类型
+//		 转换消息
+//		 转换消息1.获取消息的类型
 //		String type=xml.substring(xml.indexOf("<MsgType><![CDATA[")+18);
 //		type=type.substring(0,type.indexOf("]"));
 
 		InMessage inMessage = MessageConvertHelper.convert(xml);
 
-		// 消息无法转换
+//		消息无法转换
 		if (inMessage == null) {
 			LOG.error("消息无法转换！原文：\n{}\n", xml);
 			return "success";
 		}
 		LOG.debug("转换后的消息对象\n{}\n", inMessage);
 
-		// 把消息丢入队列
-		// 1.完成对象的序列化
+//		 把消息丢入队列
+//		 1.完成对象的序列化
 		ByteArrayOutputStream bos = new ByteArrayOutputStream(); // 字节输出流
 		ObjectOutputStream out = new ObjectOutputStream(bos);
 		out.writeObject(inMessage);
 
 //		byte[] data = bos.toByteArray();
 
-		// 2.把序列化后对象放入队列里面
+//		 2.把序列化后对象放入队列里面
 		String channel = "kemao_2" + inMessage.getMsgType();
-		// 直接把对象发送出去，调用ValueSerializer来实现对象的序列化和反序列化
+//		 直接把对象发送出去，调用ValueSerializer来实现对象的序列化和反序列化
 		inMessageTemplate.convertAndSend(channel, inMessage);
 
 //		inMessageTemplate.execute(new RedisCallback<InMessage>(){
@@ -74,8 +74,8 @@ public class MessageReceiverController {
 //				return null;
 //			}});
 
-		// 消息队列中的消息
-		// 产生客服消息
+//		 消息队列中的消息
+//		 产生客服消息
 		return "success";
 	}
 }
