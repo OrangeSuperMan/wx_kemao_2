@@ -59,7 +59,7 @@ public class MessageReceiverController {
 //		byte[] data = bos.toByteArray();
 
 //		 2.把序列化后对象放入队列里面
-		String channel = "kemao_2" + inMessage.getMsgType();
+		String channel = "kemao_2_" + inMessage.getMsgType();
 //		 直接把对象发送出去，调用ValueSerializer来实现对象的序列化和反序列化
 		inMessageTemplate.convertAndSend(channel, inMessage);
 
