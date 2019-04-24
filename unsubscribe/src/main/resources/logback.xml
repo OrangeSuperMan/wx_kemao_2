@@ -8,7 +8,7 @@
 		value="${CONSOLE_LOG_PATTERN:-%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%C %L){cyan} %clr(:){faint} %n    %m%n%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}" />
 
 	<property name="LOG_FILE"
-		value="/tmp/orange_logs/subscribe/spring.log"></property>
+		value="/tmp/orange_logs/unsubscribe/spring.log"></property>
 
 	<include
 		resource="org/springframework/boot/logging/logback/base.xml" />
