@@ -37,7 +37,7 @@ public class MessageReceiverController {
 		LOG.trace("收到的消息原文：\n{}\n--------------", xml);
 
 //		 转换消息
-//		 转换消息1.获取消息的类型
+//		 转换消息1.获取消息的类型	
 //		String type=xml.substring(xml.indexOf("<MsgType><![CDATA[")+18);
 //		type=type.substring(0,type.indexOf("]"));
 

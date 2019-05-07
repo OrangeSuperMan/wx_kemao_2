@@ -12,7 +12,7 @@ import edu.gdkm.weixin.domain.ResponseError;
 import edu.gdkm.weixin.domain.ResponseMessage;
 import edu.gdkm.weixin.domain.ResponseToken;
 import edu.gdkm.weixin.service.AccessTokenManager;
-
+//	获取令牌
 @Service
 public class AccessTokenManagerSample implements AccessTokenManager {
 

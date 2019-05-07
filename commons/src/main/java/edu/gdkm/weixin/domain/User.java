@@ -29,7 +29,7 @@ public class User {
 
 	@Id
 	@Column(length = 36)
-	// 使用UUID2算法生成主键的值，分布式系统里面不能使用自增长作为主键值
+//	 使用UUID2算法生成主键的值，分布式系统里面不能使用自增长作为主键值
 	@GenericGenerator(name = "uuid2", strategy = "uuid2")
 	@GeneratedValue(generator = "uuid2")
 	private String id;

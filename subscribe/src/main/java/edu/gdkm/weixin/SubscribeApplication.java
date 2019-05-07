@@ -49,6 +49,7 @@ public class SubscribeApplication implements //
 		ctx = applicationContext;
 	}
 
+//	这个消息监听器容器里面可以包含多个监听器，每个监听器可以监听多个通道上面的消息。
 	@Bean
 	public MessageListener messageListener(//
 			@Autowired //
