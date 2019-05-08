@@ -12,7 +12,7 @@ import edu.gdkm.weixin.repository.UserRepository;
 import edu.gdkm.weixin.service.WeiXinProxy;
 
 
-@Service("subscribeEventMessageProcessor")
+@Service("subscribeMessageProcessor")
 public class SubscribeEventMessageProcessor implements EventMessageProcessor {
 
 	private static final Logger LOG = LoggerFactory.getLogger(SubscribeEventMessageProcessor.class);
