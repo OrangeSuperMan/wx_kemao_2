@@ -60,10 +60,11 @@ public class WeiXinProxy {
 		return null;
 	}
 
-	public void sendText(String account, String openId, String string) {
-		TextOutMessage out = new TextOutMessage(openId, "欢迎关注公众号，回复【帮助】可得到菜单");
+	public void sendText(String account, String openId, String text) {
+		TextOutMessage out = new TextOutMessage(openId, text);
 		try {
 			String json = this.objectMapper.writeValueAsString(out);
+			LOG.trace("客服接口要发送的消息内容：{}", json);
 			String accessToken = accessTokenManager.getToken(account);
 			String url = "https://api.weixin.qq.com/cgi-bin/message/custom/send"//
 					+ "?access_token=" + accessToken;
