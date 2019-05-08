@@ -6,6 +6,7 @@ import java.io.ObjectOutputStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,6 +23,7 @@ public class MessageReceiverController {
 //	 日志记录器
 	private static final Logger LOG = LoggerFactory.getLogger(MessageReceiverController.class);
 	@Autowired
+	@Qualifier("inMessageTemplate")
 	private RedisTemplate<String, ? extends InMessage> inMessageTemplate;
 
 	@GetMapping
