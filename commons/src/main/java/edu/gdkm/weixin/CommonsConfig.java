@@ -10,6 +10,7 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import edu.gdkm.weixin.domain.InMessage;
+import edu.gdkm.weixin.domain.ResponseToken;
 import edu.gdkm.weixin.json.JsonRedisSerializer;
 
 public interface CommonsConfig extends
@@ -42,10 +43,10 @@ public interface CommonsConfig extends
 	}
 
 	@Bean
-	public default <T> RedisTemplate<String, T> redisTemplate(//
+	public default  RedisTemplate<String, ResponseToken> redisResponseTokenTemplate(//
 			@Autowired RedisConnectionFactory connectionFactory) {
 		
-		RedisTemplate<String, T> template = new RedisTemplate<>();
+		RedisTemplate<String, ResponseToken> template = new RedisTemplate<>();
 		template.setConnectionFactory(connectionFactory);
 //		 使用序列化程序完成对象的序列化和反序列化，可以自定义
 		template.setValueSerializer(new JsonRedisSerializer<InMessage>());

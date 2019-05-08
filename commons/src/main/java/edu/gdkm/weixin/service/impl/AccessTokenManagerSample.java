@@ -28,7 +28,7 @@ public class AccessTokenManagerSample implements AccessTokenManager {
 	private ObjectMapper objectMapper = new ObjectMapper();
 
 	@Autowired
-	@Qualifier("redisTemplate")
+	@Qualifier("redisResponseTokenTemplate")
 	private RedisTemplate<String, ResponseToken> redisTemplate;
 
 	@Override

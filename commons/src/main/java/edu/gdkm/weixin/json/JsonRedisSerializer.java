@@ -11,7 +11,6 @@ import org.hibernate.type.SerializationException;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import edu.gdkm.weixin.domain.InMessage;
 
 public class JsonRedisSerializer<T> extends Jackson2JsonRedisSerializer<T> {
