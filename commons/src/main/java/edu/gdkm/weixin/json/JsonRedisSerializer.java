@@ -56,7 +56,7 @@ public class JsonRedisSerializer<T> extends Jackson2JsonRedisSerializer<T> {
 //		 紧接着写出类名
 		try {
 			// writeUTF本身就先把长度写出去，然后再写内容
-			out.writeUTF(t.getClass().getName());
+			//out.writeUTF(t.getClass().getName());
 			String className = t.getClass().getName();
 			byte[] classNameBytes = className.getBytes();
 			out.writeInt(classNameBytes.length);
