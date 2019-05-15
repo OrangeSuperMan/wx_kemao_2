@@ -5,10 +5,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 //	通过客服接口主动发送微信用户信息消息
 public class OutMessage {
 
-	@JsonProperty("toUser")
+	@JsonProperty("touser")
 	private String toUser;
 
-	@JsonProperty("msgType")
+	@JsonProperty("msgtype")
 	private String messageType;
 
 	public OutMessage(String toUser, String messageType) {
