@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: OrangeMan
+Build-Jdk: 11.0.2
+Implementation-Title: self_menu
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: edu.gdkm
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
+ -starter-parent/wx_kemao_2/self_menu
+Created-By: Maven Integration for Eclipse
+
