@@ -11,7 +11,8 @@
 		<module>commons</module>
 		<module>subscribe</module>
 		<module>unsubscribe</module>
-</modules>
+		<module>self_menu</module>
+	</modules>
 	<!-- 项目的属性配置 -->
 	<properties>
 		<!-- 指定JDK的版本，可选的是1.8、9、10、11 -->

@@ -37,29 +37,46 @@ public class AccessTokenManagerSample implements AccessTokenManager {
 //		加上分布式事务锁
 		ResponseToken token = redisTemplate.boundValueOps(key).get();
 		if (token == null) {
-			LOG.trace("数据库里面没有令牌，需要重新获取，正在获取分布式事务锁");
+			for (int i = 0; i < 10; i++) {
+				LOG.trace("数据库里面没有令牌，需要重新获取，正在获取分布式事务锁");
 //			如果数据库里面本身已经有对应的Key，那么不能再增加相同的Key，会在指定的时间等待
-			Boolean locked = redisTemplate.boundValueOps(key + "_lock").setIfAbsent(new ResponseToken(), 1,
-					TimeUnit.MINUTES);
-			LOG.trace("获取分布式事务锁结束，结果: { }", locked);
-			if (locked != null && locked == true) {
-				try {
-					token = redisTemplate.boundValueOps(key).get();
-					if (token == null) {
-						LOG.trace("调用远程接口获取令牌");
+				Boolean locked = redisTemplate.boundValueOps(key + "_lock").setIfAbsent(new ResponseToken(), 1,
+						TimeUnit.MINUTES);
+				LOG.trace("获取分布式事务锁结束，结果: { }", locked);
+				if (locked != null && locked == true) {
+					try {
+						token = redisTemplate.boundValueOps(key).get();
+						if (token == null) {
+							LOG.trace("调用远程接口获取令牌");
 //					再次获取令牌，还是没有令牌，此时要调用远程接口
-						token = getRemoteToken(account);
+							token = getRemoteToken(account);
 //						把获取到的令牌存储到数据库
-						redisTemplate.boundValueOps(key).set(token, token.getExpiresIn(), TimeUnit.SECONDS);
-					}
-				} finally {
+							redisTemplate.boundValueOps(key).set(token, token.getExpiresIn(), TimeUnit.SECONDS);
+						}
+					} finally {
 //				删除分布式事务锁
-					redisTemplate.delete(key + "_lock");
+						redisTemplate.delete(key + "_lock");
+						synchronized (this) {
+							this.notifyAll();
+						}
+					}
+					break;
+				} else {
+//					throw new RuntimeException("没有获得事务锁，无法更新令牌");
+					synchronized (this) {
+						try {
+//							等待一分钟，重新尝试获得锁
+							this.wait(60 * 1000);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
 				}
-			} else {
-				throw new RuntimeException("没有获得事务锁，无法更新令牌");
 			}
-
+		}
+		if (token == null) {
+			throw new RuntimeException("没有获得令牌");
 		}
 		return token.getToken();
 

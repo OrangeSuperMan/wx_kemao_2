@@ -1,6 +1,7 @@
 package edu.gdkm.weixin;
 
 import org.slf4j.Logger;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,12 @@ public interface CommonsConfig extends
 	}
 
 	@Bean
+	public default ObjectMapper objectMapper() {
+		ObjectMapper mapper = new ObjectMapper();
+		return mapper;
+	}
+
+	@Bean
 	public default RedisTemplate<String, ? extends InMessage> inMessageTemplate(//
 			@Autowired RedisConnectionFactory connectionFactory) {
 
@@ -43,9 +50,9 @@ public interface CommonsConfig extends
 	}
 
 	@Bean
-	public default  RedisTemplate<String, ResponseToken> redisResponseTokenTemplate(//
+	public default RedisTemplate<String, ResponseToken> redisResponseTokenTemplate(//
 			@Autowired RedisConnectionFactory connectionFactory) {
-		
+
 		RedisTemplate<String, ResponseToken> template = new RedisTemplate<>();
 		template.setConnectionFactory(connectionFactory);
 //		 使用序列化程序完成对象的序列化和反序列化，可以自定义
